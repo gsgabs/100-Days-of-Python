@@ -197,3 +197,50 @@ if language == "en":
             if blank_word == en_word:
                 print(f"\n\nCongratulations! You won the game, the word was {en_word.upper()}")
                 game_over = True
+
+elif language == 'pt':
+    print("\nBem vindo ao jogo da forca!")
+    pt_word = generate_random_word(lista_de_palavras)
+    blank_word, blank_word_list = generate_blank_word(pt_word)
+    life = 6
+    game_over = False
+    list_of_guesses = []
+
+    # game loop
+    while life > 0 and not game_over:
+        # start
+        print(stages[life])
+        print(blank_word)
+
+        # user makes a guess
+        guess = input("Tente acertar uma letra: ").lower()
+        while not new_guess(guess):
+            guess = input(f"A letra {guess} já foi, tente outra").lower()
+        list_of_guesses.append(guess.upper())
+
+        # checking user guesses
+        guess_wrong = True
+        for index, letter in enumerate(pt_word):
+            if guess == letter:
+                blank_word_list[index] = letter
+                guess_wrong = False
+
+        # wrong guess
+        if guess_wrong:
+            print(f"A letra {guess.upper()} não pertence à palavra.")
+            print(f"\nSuas tentativas anteriores: {list_of_guesses}")
+            life -= 1
+            if life == 0:
+                print(f"\n\nVocê perdeu! A palavra era {pt_word.upper()}")
+                print("Mas não fica triste, você pode tantar de novo.")
+
+        # right guess
+        elif not guess_wrong:
+            print(f"Muito bem, {guess.upper()} é uma letra correta.")
+            print(f"\nSuas tentativas anteriores {list_of_guesses}")
+            if life < 6:
+                life += 1  # bonus life cause game hard
+            blank_word = ''.join(blank_word_list)
+            if blank_word == pt_word:
+                print(f"\n\nParabéns você venceu! A palavra era {pt_word.upper()}")
+                game_over = True
