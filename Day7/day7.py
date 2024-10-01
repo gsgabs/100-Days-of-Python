@@ -143,6 +143,8 @@ def new_guess(guess_letter):
     for each_guess in list_of_guesses:
         if each_guess.lower() == guess_letter:
             return False
+    if len(guess_letter) > 1:
+        return False
     return True
 
 
@@ -215,7 +217,7 @@ elif language == 'pt':
         # user makes a guess
         guess = input("Tente acertar uma letra: ").lower()
         while not new_guess(guess):
-            guess = input(f"A letra {guess} já foi, tente outra").lower()
+            guess = input("Tente acertar uma letra: ").lower()
         list_of_guesses.append(guess.upper())
 
         # checking user guesses
