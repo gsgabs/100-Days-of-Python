@@ -15,8 +15,11 @@ def encrypt(message, shift_number):
         if letter == ' ':
             encrypted_message += ' '
         else:
-            encrypted_message += alphabet[alphabet.index(letter) + shift_number]
-    return encrypted_message
+            position = alphabet.index(letter) + shift_number
+            if position >= 26:
+                position -= 26
+            encrypted_message += alphabet[position]
+    print(f"Here's the encoded result: {encrypted_message}")
 
 
 def decrypt(message, shift_number):
@@ -25,8 +28,14 @@ def decrypt(message, shift_number):
         if letter == ' ':
             decrypted_message += ' '
         else:
-            decrypted_message += alphabet[alphabet.index(letter) - shift_number]
-    return decrypted_message
+            position = alphabet.index(letter) - shift_number
+            if position < 0:
+                position += 26
+            decrypted_message += alphabet[position]
+    print(f"Here's the decoded result: {decrypted_message}")
 
 
-encrypt(text, shift)
+if direction == "decode":
+    decrypt(text, shift)
+else:
+    encrypt(text, shift)
