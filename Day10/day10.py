@@ -22,13 +22,17 @@ def calculate(num1, num2, operator):
 
 
 first_number = float(input("What's the first number?:  "))
-print("""
-    +
+user_decision = True
+while user_decision:
+    print("""+
     -
     *
     /
-    """)
-operation = input("Choose an operation:  ")
-second_number = float(input("What's the next number?:  "))
+        """)
+    operation = input("Choose an operation:  ")
+    second_number = float(input("What's the next number?:  "))
 
-print(f"{first_number} {operation} {second_number} = {calculate(first_number, second_number, operation)}")
+    print(f"{first_number} {operation} {second_number} = {calculate(first_number, second_number, operation)}")
+    if input(f"Type yes to continue calculating with {calculate(first_number, second_number, operation)}, or no to end:  ") != "yes":
+        user_decision = False
+    first_number = calculate(first_number, second_number, operation)
