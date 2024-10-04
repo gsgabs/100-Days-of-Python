@@ -11,6 +11,7 @@ print(logo)
 
 
 def calculate(num1, num2, operator):
+    """Take two numbers and execute a chosen operation between them"""
     if operator == "+":
         return num1 + num2
     if operator == "-":
