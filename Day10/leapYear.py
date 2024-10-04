@@ -15,5 +15,8 @@ def is_leap_year(year):
 
 
 print("Welcome to leap year checker")
-year_input = int(input("Which year you wanna check if is leap?:  "))
-is_leap_year(year_input)
+user_decision = "yes"
+while user_decision == "yes":
+    year_input = int(input("Which year you wanna check if is leap?:  "))
+    is_leap_year(year_input)
+    user_decision = input("Check another year? Type yes or no : ")
