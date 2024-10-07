@@ -29,5 +29,15 @@ if run_program == 'yes':
     computer_hand = generate_deck()
 
     print(f"Your cards: {user_hand}, current score: {calculate_score(user_hand)}")
-    print(f"Computer hand: {computer_hand}")
+    print(f"Computer firs card: {computer_hand[0]}")
+
+    user_decision = input("Type 'y' to get another card or type 'n' to pass: ").lower()
+    while user_decision == 'y':
+        user_hand.append(cards[random.randint(0, 13)])
+        print(f"Your cards: {user_hand}, current score: {calculate_score(user_hand)}")
+        if calculate_score(user_hand) > 21:
+            print("You went over!")
+            user_decision = 'n'
+        user_decision = input("Type 'y' to get another card or type 'n' to pass: ").lower()
+
 
