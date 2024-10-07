@@ -36,8 +36,24 @@ if run_program == 'yes':
         user_hand.append(cards[random.randint(0, 13)])
         print(f"Your cards: {user_hand}, current score: {calculate_score(user_hand)}")
         if calculate_score(user_hand) > 21:
-            print("You went over!")
+            print("You went over! 😭")
             user_decision = 'n'
-        user_decision = input("Type 'y' to get another card or type 'n' to pass: ").lower()
+        else:
+            user_decision = input("Type 'y' to get another card or type 'n' to pass: ").lower()
+
+    user_score = calculate_score(user_hand)
+    computer_score = calculate_score(computer_hand)
+    print(f"\nYour final hand: {user_hand}, final score {user_score}")
+    print(f"Computer final hand {computer_hand}, final score {computer_score}")
+    if user_score > 21:
+        print("You lose.")
+    elif computer_score > 21:
+        print("You won!")
+    elif user_score == computer_score:
+        print("It's a draw.")
+    elif user_score > computer_score:
+        print("You won!")
+    elif computer_score > user_score:
+        print("You lose.")
 
 
