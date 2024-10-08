@@ -23,7 +23,7 @@ run_program = input("Star the game? Type 'yes' or 'no': ").lower()
 while run_program != 'yes' and run_program != 'no':
     run_program = input("Type yes or no: ").lower()
 
-if run_program == 'yes':
+while run_program == 'yes':
     print(logo)
     user_hand = generate_deck()
     computer_hand = generate_deck()
@@ -41,6 +41,9 @@ if run_program == 'yes':
         else:
             user_decision = input("Type 'y' to get another card or type 'n' to pass: ").lower()
 
+    if calculate_score(computer_hand) < 17:
+        computer_hand.append(cards[random.randint(0, 13)])
+
     user_score = calculate_score(user_hand)
     computer_score = calculate_score(computer_hand)
     print(f"\nYour final hand: {user_hand}, final score {user_score}")
@@ -56,4 +59,6 @@ if run_program == 'yes':
     elif computer_score > user_score:
         print("You lose.")
 
-
+    run_program = input("Play again? Type 'yes' or 'no': ").lower()
+    while run_program != 'yes' and run_program != 'no':
+        run_program = input("Type yes or no: ").lower()
