@@ -5,10 +5,10 @@ cards = [11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 
 def calculate_score(player_cards):
-    player_score = 0
-    for item in player_cards:
-        player_score += item
-    return player_score
+    score = sum(player_cards)
+    if 11 in player_cards and score > 21:
+        score -= 10
+    return score
 
 
 def generate_deck():
