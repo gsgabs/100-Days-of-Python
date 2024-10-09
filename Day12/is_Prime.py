@@ -4,9 +4,9 @@ def is_prime(num):
         if num % number == 0:
             divisors += 1
     if divisors == 2:
-        return True
+        print(f"The number {num} is prime.")
     else:
-        return False
+        print(f"The number {num} isn't prime.")
 
 
-print(is_prime(73))
+is_prime(int(input("Type the number u wanna check is is Prime or not:  ")))
