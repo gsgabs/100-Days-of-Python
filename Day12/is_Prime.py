@@ -9,4 +9,7 @@ def is_prime(num):
         print(f"The number {num} isn't prime.")
 
 
-is_prime(int(input("Type the number u wanna check is is Prime or not:  ")))
+user_desire = 'y'
+while user_desire == 'y':
+    is_prime(int(input("Type the number u wanna check is is Prime or not:  ")))
+    user_desire = input("Again? type 'y' or 'n'.")
