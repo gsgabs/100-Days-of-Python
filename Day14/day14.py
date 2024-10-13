@@ -1,3 +1,6 @@
+import random
+from gameLibrary import games
+
 logo = """
     
   ___ ___ .__       .__                  
@@ -22,6 +25,12 @@ ___  ________
     """
 
 print(logo)
+
+
+def generate_random_game():
+    index = random.randint(0, 50)
+    return games[index]
+
 
 
 
