@@ -32,6 +32,15 @@ def generate_random_game():
     return games[index]
 
 
+game_1 = generate_random_game()
+game_2 = generate_random_game()
+
+while game_1["year"] == game_2["year"] or game_1["name"] == game_2["name"]:
+    print(game_1, game_2)
+    game_2 = generate_random_game()
+print(game_1, game_2)
+
+
 
 
 
