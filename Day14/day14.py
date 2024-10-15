@@ -43,7 +43,6 @@ while not game_over:
     game_2 = generate_random_game()
 
     while game_1["year"] == game_2["year"] or game_1["name"] == game_2["name"]:
-        print(game_1, game_2)
         game_2 = generate_random_game()
 
     print(f"Which was released earlier: {game_1['name']} or {game_2['name']}")
@@ -53,20 +52,23 @@ while not game_over:
         print(f"Type 1 for {game_1['name']} or 2 for {game_2['name']}. ")
         guess = input("You can also type the game name: ")
     if guess == game_1['name']:
-        guess = 1
+        guess = '1'
     if guess == game_2['name']:
-        guess = 2
+        guess = '2'
 
     if game_1['year'] < game_2['year']:
-        primeiro = game_1
+        primeiro = '1'
     if game_2['year'] < game_1['year']:
-        primeiro = game_2
+        primeiro = '2'
 
     if guess == primeiro:
         streak += 1
-        print(f"Well done! Streak +1   total{streak}")
+        print(f"\nWell done! Streak +1   total: {streak}")
+        print(f"{game_1['name']} was released in {game_1['year']}, and {game_2['name']} in {game_2['year']}\n\n")
     else:
-        print("Nooo 😭 ")
+        print(f"\nNooo 😭, {game_1['name']} was released in {game_1['year']}, and {game_2['name']} in {game_2['year']}")
+        print(f"Maximum streak: {streak}")
+        game_over = True
 
 
 
