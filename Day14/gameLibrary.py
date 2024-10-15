@@ -50,6 +50,7 @@ games = {
     48: {'name': 'Hogwarts Legacy', 'year': 2023},
     49: {'name': 'Odsparks', 'year': 2024},
     50: {'name': 'Brawlhalla', 'year': 2017},
+    51: {'name': 'the escapists', 'year':2024}
 }
 
 
