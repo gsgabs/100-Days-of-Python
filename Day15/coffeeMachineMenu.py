@@ -23,3 +23,9 @@ MENU = {
         "cost": 3.0
     }
 }
+
+resources = {
+    "water": 600,
+    "milk": 400,
+    "coffee": 200
+}
