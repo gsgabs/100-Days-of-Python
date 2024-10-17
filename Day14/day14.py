@@ -28,7 +28,7 @@ print(logo)
 
 
 def generate_random_game():
-    index = random.randint(0, 51)
+    index = random.randint(0, 52)
     return games[index]
 
 
@@ -69,8 +69,3 @@ while not game_over:
         print(f"\nNooo 😭, {game_1['name']} was released in {game_1['year']}, and {game_2['name']} in {game_2['year']}")
         print(f"Maximum streak: {streak}")
         game_over = True
-
-
-
-
-
