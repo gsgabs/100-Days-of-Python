@@ -11,12 +11,16 @@ def ask_coffee():
 
 
 money = 0.0
-coffee = ask_coffee()
-if coffee == "report":
-    for resource, amount in resources.items():
-        unit = "g" if resource == "coffee" else "ml"
-        print(f"{resource.capitalize()}: {amount}{unit}")
-    print(f"Money: ${money:.2f}")
+coffee = ''
+
+while coffee != "off":
+    coffee = ask_coffee()
+    if coffee == "report":
+        for resource, amount in resources.items():
+            unit = "g" if resource == "coffee" else "ml"
+            print(f"{resource.capitalize()}: {amount}{unit}")
+        print(f"Money: ${money:.2f}")
+
 
 
 
