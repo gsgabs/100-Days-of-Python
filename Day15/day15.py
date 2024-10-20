@@ -10,6 +10,11 @@ def ask_coffee():
     return coffee_choice
 
 
+def resources_available(coffee_choice):
+    
+
+
+
 money = 0.0
 coffee = ''
 
@@ -20,6 +25,9 @@ while coffee != "off":
             unit = "g" if resource == "coffee" else "ml"
             print(f"{resource.capitalize()}: {amount}{unit}")
         print(f"Money: ${money:.2f}")
+    if coffee != "espresso":
+
+        print("Here your coffee ☕")
 
 
 
