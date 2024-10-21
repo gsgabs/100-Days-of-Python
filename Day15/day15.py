@@ -11,8 +11,10 @@ def ask_coffee():
 
 
 def resources_available(coffee_choice):
-    
-
+    print(MENU[coffee_choice]["ingredients"])
+    for ingredient in MENU[coffee_choice]["ingredients"]:
+        if MENU[coffee_choice]["ingredients"][ingredient] < resources[ingredient]:
+            print(f"Not enough {ingredient}")
 
 
 money = 0.0
@@ -25,9 +27,9 @@ while coffee != "off":
             unit = "g" if resource == "coffee" else "ml"
             print(f"{resource.capitalize()}: {amount}{unit}")
         print(f"Money: ${money:.2f}")
-    if coffee != "espresso":
+        continue
+    resources_available(coffee)
 
-        print("Here your coffee ☕")
 
 
 
