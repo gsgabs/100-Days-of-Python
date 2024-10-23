@@ -43,24 +43,25 @@ def coin_processing(coffee_choice):
 
 
 money = 0.0
-coffee = ''
 
-while coffee != "off":
+while True:
     coffee = ask_coffee()
+    if coffee == "off":
+        print("Turning off the coffee machine🫡. Goodbye!")
+        break
     if coffee == "report":
         for resource, amount in resources.items():
             unit = "g" if resource == "coffee" else "ml"
             print(f"{resource.capitalize()}: {amount}{unit}")
         print(f"Money: ${money:.2f}")
         continue
-    if coffee != "off":
-        if not resources_available(coffee):
-            continue
-        print(f"A {coffee} is ${MENU[coffee]['cost']}, we only accept coins!")
-        change = coin_processing(coffee)
+    if not resources_available(coffee):
+        continue
+    print(f"A {coffee} is ${MENU[coffee]['cost']}, we only accept coins!")
+    change = coin_processing(coffee)
 
-        if change >= 0:
-            money += MENU[coffee]["cost"]
-            use_resources(coffee)
-            print(f"Here's your {coffee}☕. Enjoy!")
-            if change != 0: print(f"Here's your change: ${round(change, 2)}")
+    if change >= 0:
+        money += MENU[coffee]["cost"]
+        use_resources(coffee)
+        print(f"Here's your {coffee}☕. Enjoy!")
+        if change != 0: print(f"Here's your change: ${round(change, 2)}")
