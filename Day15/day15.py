@@ -24,6 +24,19 @@ def use_resources(coffee_choice):
         resources[ingredient] -= MENU[coffee_choice]["ingredients"][ingredient]
 
 
+def coin_processing():
+    total_money = 0.0
+    coins = {
+        "pennies": 0.01,
+        "nickels": 0.05,
+        "dimes": 0.1,
+        "quarters": 0.25
+    }
+    for coin, value in coins.items():
+        count = int(input(f"How many {coin}?: "))
+        total_money += count * value
+
+
 money = 0.0
 coffee = ''
 
@@ -39,6 +52,7 @@ while coffee != "off":
         if not resources_available(coffee):
             print("refund")
             continue
+
         print(f"Here's your {coffee}. Enjoy!")
         use_resources(coffee)
 
