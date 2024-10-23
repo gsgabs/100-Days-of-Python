@@ -14,7 +14,7 @@ def resources_available(coffee_choice):
     enough_resources = True
     for ingredient in MENU[coffee_choice]["ingredients"]:
         if MENU[coffee_choice]["ingredients"][ingredient] > resources[ingredient]:
-            print(f"Not enough {ingredient}")
+            print(f"Not enough {ingredient} for a {coffee_choice}")
             enough_resources = False
     return enough_resources
 
@@ -60,6 +60,7 @@ while coffee != "off":
         change = coin_processing(coffee)
 
         if change >= 0:
+            money += MENU[coffee]["cost"]
             use_resources(coffee)
             print(f"Here's your {coffee}☕. Enjoy!")
-            if change != 0: print(f"Here's your change: ${change}")
+            if change != 0: print(f"Here's your change: ${round(change, 2)}")
