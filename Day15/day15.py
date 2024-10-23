@@ -36,12 +36,10 @@ def coin_processing(coffee_choice):
         count = int(input(f"How many {coin}?: "))
         total_money += count * value
     if MENU[coffee_choice]["cost"] > total_money:
-        print(f"There's not enough money for a {coffee_choice}")
+        print(f"There's not enough money for a {coffee_choice}.")
         print(f"Refunded ${total_money}")
-        return False
-    change = total_money - MENU[coffee_choice]['cost']
-    return change
-
+        return -1
+    return total_money - MENU[coffee_choice]['cost']
 
 
 money = 0.0
@@ -57,19 +55,11 @@ while coffee != "off":
         continue
     if coffee != "off":
         if not resources_available(coffee):
-            print("refund")
             continue
         print(f"A {coffee} is ${MENU[coffee]['cost']}, we only accept coins!")
-        if coin_processing(coffee) != False:
+        change = coin_processing(coffee)
+
+        if change >= 0:
             use_resources(coffee)
             print(f"Here's your {coffee}☕. Enjoy!")
-            
-
-
-
-
-
-
-
-
-
+            if change != 0: print(f"Here's your change: ${change}")
