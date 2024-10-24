@@ -10,6 +10,13 @@ def ask_coffee():
     return coffee_choice
 
 
+def report():
+    for resource, amount in resources.items():
+        unit = "g" if resource == "coffee" else "ml"
+        print(f"{resource.capitalize()}: {amount}{unit}")
+    print(f"Money: ${money:.2f}")
+
+
 def resources_available(coffee_choice):
     enough_resources = True
     for ingredient in MENU[coffee_choice]["ingredients"]:
@@ -50,10 +57,7 @@ while True:
         print("Turning off the coffee machine🫡. Goodbye!")
         break
     if coffee == "report":
-        for resource, amount in resources.items():
-            unit = "g" if resource == "coffee" else "ml"
-            print(f"{resource.capitalize()}: {amount}{unit}")
-        print(f"Money: ${money:.2f}")
+        report()
         continue
     if not resources_available(coffee):
         continue
